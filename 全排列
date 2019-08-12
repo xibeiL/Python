@@ -1,0 +1,37 @@
+import itertools
+array = [1,2,3]
+pailie = list(itertools.permutations(array))#要list一下，不然它只是一个对象
+for x in pailie:
+    for y in x:
+        print(y,end=' ')
+    print()
+    
+1 2 3 
+1 3 2 
+2 1 3 
+2 3 1 
+3 1 2 
+3 2 1 
+
+
+
+
+如果不是全排列，是按字典序输出不重复的组合方式可以用这个库的combinations
+
+from itertools import combinations
+import sys
+a,b = map(int,input().split())# a表示组合的序列是1到几，b表示进行组合的一个是几个数
+if b > a:
+    print('-1')
+    sys.exit()
+mylist = list(range(1,a+1))
+for x in combinations(mylist,b):# 参数第一个是可迭代的序列，第二个是一个组合几个数
+    for index in x:
+        print(index,end=' ')
+    print()
+    
+    
+3 2
+1 2 
+1 3 
+2 3
