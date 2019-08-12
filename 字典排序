@@ -1,0 +1,51 @@
+a = {'b':'a','d':'d','a':'a'
+sorted(a.items(),key=lambda x:x[0])
+[('a', 'a'), ('b', 'a'), ('d', 'd')]
+
+
+
+
+a = {'a':'d','b':'a','c':'b'}
+sorted(a.items(),key=lambda x:x[1])
+[('b', 'a'), ('c', 'b'), ('a', 'd')]
+
+
+同样，用dict1.values()得到所有的values，然后对value排序
+
+dict1={'a':2,'e':3,'f':8,'d':4}
+list1= sorted(dict1.values())
+print(list1)    #结果：[2, 3, 4, 8]
+设值reverse=True 进行反向排序
+
+也可以用dict1.items()，得到包含键，值的元组
+
+由于迭代对象是元组，返回值自然是元组组成的列表
+
+这里对排序的规则进行了定义，x指元组，x[1]是值，x[0]是键
+
+dict1={'a':2,'e':3,'f':8,'d':4}
+list1= sorted(dict1.items(),key=lambda x:x[1])
+print(list1)
+结果：
+
+[('a', 2), ('e', 3), ('d', 4), ('f', 8)]
+对键进行排序：
+
+dict1={'a':2,'e':3,'f':8,'d':4}
+list1= sorted(dict1.items(),key=lambda x:x[0])
+print(list1)
+结果：
+
+[('a', 2), ('d', 4), ('e', 3), ('f', 8)]
+4 itemgetter
+from operator import itemgetter
+d = {"a":8,"b":4,"c":12}
+print(sorted(d.items(),key=itemgetter(0),reverse=True))
+print(sorted(d.items(),key=itemgetter(1),reverse=True))
+结果：
+
+[('c', 12), ('b', 4), ('a', 8)]
+[('c', 12), ('a', 8), ('b', 4)]
+itemgetter(0)，获取key
+
+itemgetter(1)，获取value
