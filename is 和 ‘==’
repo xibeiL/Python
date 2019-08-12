@@ -1,8 +1,49 @@
 is 和 '=='
-Python中对象包含的三个基本要素，分别是：id(身份标识)、type(数据类型)和value(值)。
+Python中对象包含的三个基本要素，分别是：id(身份标识)【id() 函数用于获取对象的内存地址。】
+                                     type(数据类型)
+                                     value(值)。
 ==比较操作符，is同一性运算符
-is也被叫做同一性运算符，这个运算符比较判断的是对象间的唯一身份标识，也就是id是否相同
+1.== 是比较两个对象的内容是否相等，即两个对象的“值“”是否相等，不管两者在内存中的引用地址是否一样。
+2.is 比较的是两个实例对象是不是完全相同，它们是不是同一个对象，占用的内存地址是否相同。
+     即is比较两个条件：1.内容相同。2.内存中地址相同
+     
 只有数值型和字符串型的情况下，a is b才为True，当a和b是tuple，list，dict或set型时，a is b为False。
+
+
+
+对于类的实例比较
+class Student(object):
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def run(self):
+        print("can run")
+ 
+stu1 = Student("tom",19)
+stu2 = Student("tom",19)
+stu3 = stu2
+print(id(stu1)==id(stu2),stu1 == stu2)  #False False
+#注意这里stu1和stu2的值是不等的，虽然初始化创建对象格式一样。
+print(id(stu2)==id(stu3),stu2 == stu3)  # True True
+
+
+
+class Student(object):
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def run(self):
+        print("can run")
+ 
+stu1 = Student("tom",19)
+stu2 = Student("tom",19)
+stu3 = stu2
+print(id(stu1),id(stu2),id(stu3))
+print(stu1 is stu2,stu2 is stu3)
+=========================================
+2091922655776 2091922655888 2091922655888
+False True
+
 
 >>> x = y = [4,5,6]
 >>> z = [4,5,6]
@@ -14,13 +55,16 @@ True
 True
 >>> x is z
 False
->>>
 >>> print id(x)
 3075326572
 >>> print id(y)
 3075326572
 >>> print id(z)
 3075328140
+
+
+
+
 >>> a = 1 #a和b为数值类型
 >>> b = 1
 >>> a is b
