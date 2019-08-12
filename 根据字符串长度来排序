@@ -1,0 +1,11 @@
+
+给定字符串：xs = ['dddd','a','bb','ccc'] 
+
+输出排序的结果：['a','bb','ccc','dddd']
+解决1：
+xs.sort(key=len)
+解决2：
+xs.sort(lambda x,y: cmp(len(x), len(y)) 
+注意：当传递lambda给sort时，需要返回integer，而不能为bool数
+使用：
+xs.sort(lambda x,y: len(x) < len(y))则不对。
