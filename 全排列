@@ -13,7 +13,15 @@ for x in pailie:
 3 1 2 
 3 2 1 
 
-
+import itertools
+for i in itertools.permutations('abc', 3):
+    print (''.join(i))
+abc
+acb
+bac
+bca
+cab
+cba
 
 
 如果不是全排列，是按字典序输出不重复的组合方式可以用这个库的combinations
@@ -35,3 +43,32 @@ for x in combinations(mylist,b):# 参数第一个是可迭代的序列，第二�
 1 2 
 1 3 
 2 3
+
+
+
+def permut(num,begin,end):
+    if begin==end:
+        print num
+    else:
+        i=begin
+        for j in xrange(begin,end):
+            num[j],num[i]=num[i],num[j]
+            permut(num,begin+1,end)
+            num[j],num[i]=num[i],num[j]
+num=[1,2,3]  
+permut(num,0,len(num))  
+
+
+
+
+def perm(l):  
+    if(len(l)<=1):  
+        return [l]  
+    r=[]  
+    for i in range(len(l)):  
+        s=l[:i]+l[i+1:]  
+        p=perm(s)  
+        for x in p:  
+            r.append(l[i:i+1]+x)  
+    return r
+print(perm([1,2,3]))
