@@ -1,0 +1,38 @@
+import time
+
+
+t1 = time.time()
+    #1566023035.2857962   每个时间戳都以自从1970年1月1日午夜（历元）经过了多长时间来表示
+t2 = time.localtime()
+    #得到元组time.struct_time(tm_year=2019, tm_mon=8, tm_mday=17,
+    # tm_hour=14, tm_min=23, tm_sec=55,
+    # tm_wday=5, tm_yday=229, tm_isdst=0)
+t3 = t2[3]
+    #14 type(int)
+t4 = time.asctime()
+    #Sat Aug 17 14:27:22 2019   type(str) 固定长度 24位  ‘星期 月 日 小时 分钟 秒 年 ’
+
+t5 = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    #2019-08-17 14:32:20   type(str)
+t6 = time.strftime("%a %b %d %H:%M:%S %Y", time.localtime())
+    #Sat Aug 17 14:33:33 2019   type(str)
+
+a = "Sat Mar 28 22:24:24 2016"
+b = time.mktime(time.strptime(a,"%a %b %d %H:%M:%S %Y"))
+    ## 将格式字符串转换为时间戳
+    #1459175064.0    type(float)
+
+
+# print(t1)
+# print(t2)
+# print(t3)
+# print(type(t3))
+# print(t4)
+# print(type(t4))
+# print(type(t4[10]))
+# print(t5)
+# print(type(t5))
+# print(t6)
+# print(type(t6))
+# print(b)
+# print(type(b))
