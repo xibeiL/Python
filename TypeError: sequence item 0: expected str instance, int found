@@ -1,0 +1,28 @@
+今天敲小例子，报了错TypeError: sequence item 0: expected str instance, int found
+
+小例子：list1=[1,'two','three',4]
+
+print(' '.join(list1))
+
+以为会打印 1 two three 4
+
+结果报了错
+
+Traceback (most recent call last):
+  File "<pyshell#27>", line 1, in <module>
+    print(" ".join(list1))
+TypeError: sequence item 0: expected str instance, int found
+
+上网查了资料，说list包含数字，不能直接转化成字符串。
+
+解决办法：print(" ".join('%s' %id for id in list1))
+
+即遍历list的元素，把他转化成字符串。这样就能成功输出1 two three 4结果了。
+
+
+
+
+
+————————————————
+版权声明：本文为CSDN博主「我是门儿」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/laochu250/article/details/67649210
